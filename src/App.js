@@ -16,14 +16,8 @@ export default function App() {
   return (
     <div>
       <h2>libros en Linea</h2>
-      <div>
-        controles
-      </div>
-      <Epub
-        uri={
-          'https://zeektenka.github.io/files/Don Quixote by Miguel de Cervantes Saavedra.epub'
-        }
-      />
+      <div>controles</div>
+      <Epub uri={'https://jccetinac.github.io/librosenlinea/sherlock.epub'} />
     </div>
   );
 }
