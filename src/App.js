@@ -21,7 +21,7 @@ export default function App() {
       </div>
       <Epub
         uri={
-          'http://sellodetinta.co/wp-content/uploads/2022/11/quijote.epub'
+          'https://zeektenka.github.io/files/Don Quixote by Miguel de Cervantes Saavedra.epub'
         }
       />
     </div>
