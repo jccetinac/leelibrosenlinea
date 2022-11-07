@@ -48,24 +48,7 @@ const Epub = ({ uri }) => {
   }, [size]);
 
   return (
-    <div style={{ height: '98vh', position: 'relative', top: '0rem' }}>
-      <ReactReader
-        location={location}
-        styles={ownStyles}
-        locationChanged={locationChanged}
-        url={uri}
-        getRendition={(rendition) => {
-          renditionRef.current = rendition;
-          renditionRef.current.themes.fontSize(`${size}%`);
-          // Custom Styles
-          rendition.themes.register('custom', {
-            img: {
-              width: '100%',
-            },
-          });
-          rendition.themes.select('custom');
-        }}
-      />
+    <>
       <div className="settings">
         <button
           className="icon-btn"
@@ -98,7 +81,26 @@ const Epub = ({ uri }) => {
           </div>
         </div>
       </div>
-    </div>
+      <div className="reader">
+        <ReactReader
+          location={location}
+          styles={ownStyles}
+          locationChanged={locationChanged}
+          url={uri}
+          getRendition={(rendition) => {
+            renditionRef.current = rendition;
+            renditionRef.current.themes.fontSize(`${size}%`);
+            // Custom Styles
+            rendition.themes.register('custom', {
+              img: {
+                width: '100%',
+              },
+            });
+            rendition.themes.select('custom');
+          }}
+        />
+      </div>
+    </>
   );
 };
 
