@@ -7,6 +7,10 @@ button:hover {
   cursor: pointer;
 }
 
+p .block{
+  color: red;
+}
+
 .settings {
   top: 15px;
   right: 15px;

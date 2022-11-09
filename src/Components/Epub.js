@@ -14,7 +14,6 @@ const Epub = ({ uri }) => {
 
   // Settings Tile Stuff
   const [settingsOpen, setSettingOpen] = useState(false);
-
   const ownStyles = {
     ...ReactReaderStyle,
     readerArea: {
@@ -44,6 +43,17 @@ const Epub = ({ uri }) => {
       localStorage.setItem('fontSize', JSON.stringify(size));
     }
   }, [size]);
+
+  const initialStyles = () => {
+    ReactReaderStyle.arrow.background = 'green';
+    ReactReaderStyle.readerArea.backgroundColor = 'pink';
+    ReactReaderStyle.readerArea.color = '#fff';
+  };
+
+  useEffect(() => {
+    console.log(ReactReaderStyle);
+    initialStyles();
+  }, []);
 
   return (
     <>
