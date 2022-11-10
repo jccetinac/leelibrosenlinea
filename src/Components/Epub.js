@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ReactReader, ReactReaderStyle } from 'react-reader';
-import Settings from './Settings';
 
-const Epub = ({ uri }) => {
+const Epub = ({ uri, renditionRef, size }) => {
   // Set Page location
   const [location, setLocation] =
     localStorage.getItem('CurrentBook') == uri
@@ -12,8 +11,6 @@ const Epub = ({ uri }) => {
   // Persist CurrentPage to local storage
   const current_book = localStorage.getItem('CurrentBook');
 
-  // Settings Tile Stuff
-  const [settingsOpen, setSettingOpen] = useState(false);
   const ownStyles = {
     ...ReactReaderStyle,
     readerArea: {
@@ -29,21 +26,6 @@ const Epub = ({ uri }) => {
     localStorage.setItem('CurrentPage', JSON.stringify(location));
   };
 
-  // Font size stuff
-  const [size, setSize] = localStorage.fontSize
-    ? useState(JSON.parse(localStorage.fontSize))
-    : useState(100);
-  const renditionRef = useRef(null);
-  const changeSize = (newSize) => {
-    setSize(newSize);
-  };
-  useEffect(() => {
-    if (renditionRef.current) {
-      renditionRef.current.themes.fontSize(`${size}%`);
-      localStorage.setItem('fontSize', JSON.stringify(size));
-    }
-  }, [size]);
-
   const initialStyles = () => {
     ReactReaderStyle.arrow.background = 'green';
     ReactReaderStyle.readerArea.backgroundColor = '#fff';
@@ -57,7 +39,6 @@ const Epub = ({ uri }) => {
 
   return (
     <>
-      <Settings changeSize={changeSize} size={size} />
       <div className="reader">
         <ReactReader
           location={location}

@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ReactReader, ReactReaderStyle } from 'react-reader';
+
 import { HiOutlineCog, HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
-// If confused ,Read the Docs https://github.com/gerhardsletten/react-reader#add--adjust-custom-css-for-the-epub-html
-
-const Epub = ({ changeSize, size }) => {
-  // Settings Tile Stuff
+const Epub = ({ setSize, size }) => {
   const [settingsOpen, setSettingOpen] = useState(false);
 
   return (
@@ -28,14 +25,14 @@ const Epub = ({ changeSize, size }) => {
           <div className="fontsize_change_div">
             <button
               className="icon-btn"
-              onClick={() => changeSize(Math.max(70, size - 10))}
+              onClick={() => setSize(Math.max(70, size - 10))}
             >
               <HiChevronLeft color="grey" fontSize="1.4rem" />
             </button>
             <span className="size">{size}%</span>
             <button
               className="icon-btn"
-              onClick={() => changeSize(Math.min(200, size + 10))}
+              onClick={() => setSize(Math.min(200, size + 10))}
             >
               <HiChevronRight color="grey" fontSize="1.4rem" />
             </button>
