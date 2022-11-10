@@ -7,18 +7,16 @@ button:hover {
   cursor: pointer;
 }
 
-p .block{
-  color: red;
-}
-
 .settings {
-  top: 15px;
-  right: 15px;
-  z-index: 10;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   background-color: red;
+  max-height: 50px;
+  height: fit-content;
+  width: 100%;
+  padding: 10px;
+  justify-content: center;
 }
 
 #settings_container {
@@ -67,9 +65,7 @@ p .block{
 .container-menu {
   background-color: yellow;
   display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   max-height: 10vh;
   padding: 10px;
@@ -84,7 +80,6 @@ p .block{
 .reader-container {
   background-color: #eee;
   width: 80%;
-  margin-top: 8vh;
 }
 .reader {
   height: 80vh;

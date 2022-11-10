@@ -46,7 +46,7 @@ const Epub = ({ uri }) => {
 
   const initialStyles = () => {
     ReactReaderStyle.arrow.background = 'green';
-    ReactReaderStyle.readerArea.backgroundColor = 'pink';
+    ReactReaderStyle.readerArea.backgroundColor = '#fff';
     ReactReaderStyle.readerArea.color = '#fff';
   };
 
