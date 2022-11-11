@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './style.css';
+import './Styles/App.scss';
 import Epub from './Components/Epub';
 import Ads from './Components/Ads';
 import Menu from './Components/Menu';
