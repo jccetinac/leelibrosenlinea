@@ -6,16 +6,11 @@ import Menu from './Components/Menu';
 import Settings from './Components/Settings';
 
 export default function App() {
-  // Font size stuff
-  const [size, setSize] = localStorage.fontSize
-    ? useState(JSON.parse(localStorage.fontSize))
-    : useState(100);
+  const [size, setSize] = useState(
+    localStorage.fontSize ? JSON.parse(localStorage.fontSize) : 100
+  );
+  const [showSettings, setShowSettings] = useState(true);
   const renditionRef = useRef(null);
-
-  const changeSize = (newSize) => {
-    setSize(newSize);
-  };
-
   useEffect(() => {
     if (renditionRef.current) {
       renditionRef.current.themes.fontSize(`${size}%`);
@@ -25,10 +20,10 @@ export default function App() {
 
   return (
     <div>
-      <Menu />
+      <Menu showSettings={showSettings} setShowSettings={setShowSettings} />
       <div className="container-main">
         <div className="reader-container">
-          <Settings setSize={setSize} size={size} />
+          {showSettings === true && <Settings setSize={setSize} size={size} />}
           <Epub
             uri={'https://jccetinac.github.io/librosenlinea/sherlock.epub'}
             renditionRef={renditionRef}

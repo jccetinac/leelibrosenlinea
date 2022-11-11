@@ -7,25 +7,21 @@ button:hover {
   cursor: pointer;
 }
 
-.settings {
+.settings-container {
+  position: absolute;
   display: flex;
   align-items: center;
-  background-color: red;
-  max-height: 50px;
-  height: fit-content;
+  background-color: #1a1919b5;
+  height: 100%;
   width: 100%;
   padding: 10px;
   justify-content: center;
+  z-index: 1000;
 }
-
-#settings_container {
-  background-color: whitesmoke;
-  border-radius: 3px;
-  border: 1px solid black;
-  flex-direction: column;
-  width: fit-content;
+.settings {
+  background-color: white;
+  width: 80%;
 }
-
 .small-btn {
   width: 30px;
   height: 30px;
