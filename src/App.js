@@ -32,6 +32,7 @@ export default function App() {
         </div>
         <Ads />
       </div>
+      <Ads mobile />
     </div>
   );
 }
