@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
-import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
+import { HiChevronLeft, HiChevronRight, HiX } from 'react-icons/hi';
 
-const Epub = ({ setSize, size }) => {
-  const [settingsOpen, setSettingOpen] = useState(false);
-
+const Epub = ({ setSize, size, setShowSettings }) => {
   return (
     <>
       <div className="settings-container">
@@ -30,6 +28,14 @@ const Epub = ({ setSize, size }) => {
             </div>
           </div>
         </div>
+        <button
+          className="close"
+          onClick={() => {
+            setShowSettings(false);
+          }}
+        >
+          <HiX color="grey" fontSize="1.4rem" />
+        </button>
       </div>
     </>
   );

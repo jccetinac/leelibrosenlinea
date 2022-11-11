@@ -11,7 +11,7 @@ const Menu = ({ showSettings, setShowSettings }) => {
           setShowSettings(!showSettings);
         }}
       >
-        <HiOutlineCog />
+        <HiOutlineCog fontSize="1.4rem" />
       </button>
     </div>
   );

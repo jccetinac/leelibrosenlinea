@@ -23,7 +23,13 @@ export default function App() {
       <Menu showSettings={showSettings} setShowSettings={setShowSettings} />
       <div className="container-main">
         <div className="reader-container">
-          {showSettings === true && <Settings setSize={setSize} size={size} />}
+          {showSettings === true && (
+            <Settings
+              setSize={setSize}
+              size={size}
+              setShowSettings={setShowSettings}
+            />
+          )}
           <Epub
             uri={'https://jccetinac.github.io/librosenlinea/sherlock.epub'}
             renditionRef={renditionRef}
