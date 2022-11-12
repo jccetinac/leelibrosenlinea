@@ -5,7 +5,10 @@ body {
   padding: 0;
 }
 // Settings
-
+button {
+  background-color: red;
+  color: white;
+}
 .settings-container {
   position: absolute;
   display: flex;
