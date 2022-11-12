@@ -72,11 +72,13 @@ body {
 
 // menu
 .container-menu {
-  background-color: pink;
+  background-color: red;
   max-width: 100vw;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px 20px 10px 20px;
+  color: rgb(255, 255, 255);
+  max-height: 5vh;
 
   .settings-btn {
     height: 30px;
@@ -91,7 +93,6 @@ body {
 }
 
 .container-main {
-  background-color: yellow;
   display: flex;
   height: 100vh;
   overflow: hidden;
@@ -100,9 +101,11 @@ body {
 .reader-container {
   background-color: #eee;
   width: 80%;
+
   .reader {
-    height: 100%;
+    height: 95%;
     position: relative;
+    margin-top: -10px;
   }
 }
 

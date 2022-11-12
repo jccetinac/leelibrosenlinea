@@ -9,7 +9,7 @@ export default function App() {
   const [size, setSize] = useState(
     localStorage.fontSize ? JSON.parse(localStorage.fontSize) : 100
   );
-  const [showSettings, setShowSettings] = useState(true);
+  const [showSettings, setShowSettings] = useState(false);
   const renditionRef = useRef(null);
   useEffect(() => {
     if (renditionRef.current) {

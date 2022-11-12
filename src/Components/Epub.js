@@ -27,7 +27,18 @@ const Epub = ({ uri, renditionRef, size }) => {
   };
 
   const initialStyles = () => {
-    ReactReaderStyle.arrow.background = 'green';
+    ReactReaderStyle.arrow.background = 'red';
+    ReactReaderStyle.arrow.borderRadius = '100%';
+    ReactReaderStyle.arrow.width = '32px';
+    ReactReaderStyle.arrow.height = '32px';
+    ReactReaderStyle.arrow.padding = '0px 0px';
+    ReactReaderStyle.arrow.marginTop = '0';
+    ReactReaderStyle.arrow.margin = '0 10px';
+    ReactReaderStyle.arrow.display = 'flex';
+    ReactReaderStyle.arrow.justifyContent = 'center';
+    ReactReaderStyle.arrow.alignItems = 'center';
+    ReactReaderStyle.arrow.fontSize = '32px';
+
     ReactReaderStyle.readerArea.backgroundColor = '#fff';
     ReactReaderStyle.readerArea.color = '#fff';
   };
