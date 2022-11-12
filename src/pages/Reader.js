@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './Styles/App.scss';
-import Epub from './Components/Epub';
-import Ads from './Components/Ads';
-import Menu from './Components/Menu';
-import Settings from './Components/Settings';
+import Epub from '../Components/Epub';
+import Ads from '../Components/Ads';
+import Menu from '../Components/Menu';
+import Settings from '../Components/Settings';
 
-export default function App() {
+export default function Reader() {
   const [size, setSize] = useState(
     localStorage.fontSize ? JSON.parse(localStorage.fontSize) : 100
   );
