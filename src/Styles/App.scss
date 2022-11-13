@@ -4,6 +4,13 @@ body {
   overflow: hidden;
   padding: 0;
 }
+
+.list-books {
+  a {
+    display: block;
+  }
+}
+
 // Settings
 button {
   background-color: red;
