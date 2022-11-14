@@ -3,7 +3,7 @@ import { showSettings, setSize } from '../store/actions/videoActions';
 
 const SettingsHook = () => {
   const dispatch = useDispatch();
-  const settingsShow = useSelector((state) => state.settings);
+  const settings = useSelector((state) => state.settings);
   const size = useSelector((state) => state.size);
 
   const incressSizeFont = () => {
@@ -14,7 +14,8 @@ const SettingsHook = () => {
   };
 
   const switchShowSettings = () => {
-    dispatch(showSettings(!settingsShow));
+    console.log(settings);
+    dispatch(showSettings(!settings));
   };
 
   return {
@@ -22,7 +23,7 @@ const SettingsHook = () => {
     decressSizeFont,
     size,
     switchShowSettings,
-    showSettings,
+    settings,
   };
 };
 

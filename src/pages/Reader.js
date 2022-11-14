@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useSelector } from 'react-redux';
 
@@ -8,9 +8,10 @@ import Settings from '../Components/Settings';
 import { useParams } from 'react-router-dom';
 import DATA from '../Data/Data';
 
-export default function Reader() {
-  const settingsShow = useSelector((state) => state.settings);
-  const size = useSelector((state) => state.size);
+import SettingsHook from '../Hooks/SettingsHook';
+
+const Reader = () => {
+  const { size, settings } = SettingsHook();
 
   const { id } = useParams();
 
@@ -29,7 +30,7 @@ export default function Reader() {
     <div>
       <div className="container-main">
         <div className="reader-container">
-          {settingsShow === true && <Settings />}
+          {settings ? <Settings /> : ''}
           <Epub uri={uri} renditionRef={renditionRef} />
         </div>
         <Ads />
@@ -37,4 +38,6 @@ export default function Reader() {
       <Ads mobile />
     </div>
   );
-}
+};
+
+export default Reader;

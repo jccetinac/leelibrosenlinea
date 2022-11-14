@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 
 import DATA from '../Data/Data';
 import { Link } from 'react-router-dom';
+
 const BookStore = () => {
   const UrlBase = 'https://zeektenka.github.io/files/';
 

@@ -6,7 +6,6 @@ import SettingsHook from '../Hooks/SettingsHook';
 
 const Menu = () => {
   const { id } = useParams();
-
   const { switchShowSettings } = SettingsHook();
 
   return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import { showSettings, setSize } from '../store/actions/videoActions';
 import SettingsHook from '../Hooks/SettingsHook';
 
 import { HiChevronLeft, HiChevronRight, HiX } from 'react-icons/hi';
