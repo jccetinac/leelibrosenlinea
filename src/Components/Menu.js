@@ -1,14 +1,13 @@
 import React from 'react';
 import { HiOutlineCog } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { showSettings } from '../store/actions/videoActions';
 import { useParams } from 'react-router-dom';
+import SettingsHook from '../Hooks/SettingsHook';
 
 const Menu = () => {
-  const dispatch = useDispatch();
-  const settings = useSelector((state) => state.settings);
   const { id } = useParams();
+
+  const { switchShowSettings } = SettingsHook();
 
   return (
     <div className="container-menu">
@@ -20,7 +19,7 @@ const Menu = () => {
         <button
           className="settings-btn"
           onClick={() => {
-            dispatch(showSettings(!settings));
+            switchShowSettings();
           }}
         >
           <HiOutlineCog fontSize="1.4rem" />

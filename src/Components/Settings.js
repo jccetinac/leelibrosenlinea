@@ -1,14 +1,17 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { showSettings, setSize } from '../store/actions/videoActions';
+import SettingsHook from '../Hooks/SettingsHook';
 
 import { HiChevronLeft, HiChevronRight, HiX } from 'react-icons/hi';
 
 const Epub = () => {
-  const dispatch = useDispatch();
-
-  const settingsShow = useSelector((state) => state.settings);
-  const size = useSelector((state) => state.size);
+  const {
+    incressSizeFont,
+    decressSizeFont,
+    size,
+    showSettings,
+    switchShowSettings,
+  } = SettingsHook();
 
   return (
     <>
@@ -21,14 +24,18 @@ const Epub = () => {
             <div className="controls">
               <button
                 className="icon-btn"
-                onClick={() => dispatch(setSize(Math.min(200, size - 10)))}
+                onClick={() => {
+                  decressSizeFont();
+                }}
               >
                 <HiChevronLeft color="grey" fontSize="1.4rem" />
               </button>
               <span className="value">{size}%</span>
               <button
                 className="icon-btn"
-                onClick={() => dispatch(setSize(Math.min(200, size + 10)))}
+                onClick={() => {
+                  incressSizeFont();
+                }}
               >
                 <HiChevronRight color="grey" fontSize="1.4rem" />
               </button>
@@ -38,7 +45,7 @@ const Epub = () => {
         <button
           className="close"
           onClick={() => {
-            dispatch(showSettings(!settingsShow));
+            switchShowSettings();
           }}
         >
           <HiX color="grey" fontSize="1.4rem" />
