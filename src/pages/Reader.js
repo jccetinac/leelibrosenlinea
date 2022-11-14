@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Epub from '../Components/Epub';
 import Ads from '../Components/Ads';
@@ -9,12 +10,9 @@ import DATA from '../Data/Data';
 
 export default function Reader() {
   const settingsShow = useSelector((state) => state.settings);
+  const size = useSelector((state) => state.size);
 
   const { id } = useParams();
-
-  const [size, setSize] = useState(
-    localStorage.fontSize ? JSON.parse(localStorage.fontSize) : 100
-  );
 
   const renditionRef = useRef(null);
 
@@ -31,8 +29,8 @@ export default function Reader() {
     <div>
       <div className="container-main">
         <div className="reader-container">
-          {settingsShow === true && <Settings setSize={setSize} size={size} />}
-          <Epub uri={uri} renditionRef={renditionRef} size={size} />
+          {settingsShow === true && <Settings />}
+          <Epub uri={uri} renditionRef={renditionRef} />
         </div>
         <Ads />
       </div>

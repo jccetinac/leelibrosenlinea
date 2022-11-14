@@ -1,8 +1,9 @@
-import { CHANGENAME, SHOWSETTINGS } from '../actions/videoActions.js';
+import { CHANGENAME, SHOWSETTINGS, SET_SIZE } from '../actions/videoActions.js';
 
 const INICIALSTATE = {
   name: 'inicial',
   settings: false,
+  size: 100,
 };
 
 const currencyReducer = (state = INICIALSTATE, action) => {
@@ -18,6 +19,12 @@ const currencyReducer = (state = INICIALSTATE, action) => {
       return {
         ...state,
         settings: action.payload,
+      };
+    case SET_SIZE:
+      console.log('setSize');
+      return {
+        ...state,
+        size: action.payload,
       };
     default:
       return state;

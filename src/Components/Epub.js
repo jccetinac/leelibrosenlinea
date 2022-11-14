@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ReactReader, ReactReaderStyle } from 'react-reader';
+import { useSelector } from 'react-redux';
 
-const Epub = ({ uri, renditionRef, size }) => {
+const Epub = ({ uri, renditionRef }) => {
+  const size = useSelector((state) => state.size);
+
   // Set Page location
   const [location, setLocation] =
     localStorage.getItem('CurrentBook') == uri
