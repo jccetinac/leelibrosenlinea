@@ -1,6 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
-import { useSelector } from 'react-redux';
+import React from 'react';
 
 import Epub from '../Components/Epub';
 import Ads from '../Components/Ads';
