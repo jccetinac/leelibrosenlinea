@@ -44,7 +44,6 @@ const Epub = ({ uri, renditionRef, size }) => {
   };
 
   useEffect(() => {
-    console.log(ReactReaderStyle);
     initialStyles();
   }, []);
 

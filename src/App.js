@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import appStore from './store';
+import Menu from './Components/Menu';
 
 import './Styles/App.scss';
 
@@ -21,9 +22,11 @@ export default function App() {
       <Router>
         <Switch>
           <Route path="/" exact>
+            <Menu />
             <BookStore />
           </Route>
           <Route path="/book/:id">
+            <Menu />
             <Reader />
           </Route>
         </Switch>

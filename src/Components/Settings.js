@@ -1,8 +1,14 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { showSettings } from '../store/actions/videoActions';
 
 import { HiChevronLeft, HiChevronRight, HiX } from 'react-icons/hi';
 
-const Epub = ({ setSize, size, setShowSettings }) => {
+const Epub = ({ setSize, size }) => {
+  const dispatch = useDispatch();
+
+  const settingsShow = useSelector((state) => state.settings);
+
   return (
     <>
       <div className="settings-container">
@@ -31,7 +37,7 @@ const Epub = ({ setSize, size, setShowSettings }) => {
         <button
           className="close"
           onClick={() => {
-            setShowSettings(false);
+            dispatch(showSettings(!settingsShow));
           }}
         >
           <HiX color="grey" fontSize="1.4rem" />

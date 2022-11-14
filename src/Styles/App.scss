@@ -89,7 +89,11 @@ button {
   padding: 10px 20px 10px 20px;
   color: rgb(255, 255, 255);
   max-height: 5vh;
-
+  .title {
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bolder;
+  }
   .settings-btn {
     height: 30px;
     width: 30px;
