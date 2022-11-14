@@ -1,4 +1,7 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import appStore from './store';
+
 import './Styles/App.scss';
 
 import {
@@ -14,15 +17,17 @@ import BookStore from './pages/BookStore';
 
 export default function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact>
-          <BookStore />
-        </Route>
-        <Route path="/book/:id">
-          <Reader />
-        </Route>
-      </Switch>
-    </Router>
+    <Provider store={appStore}>
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            <BookStore />
+          </Route>
+          <Route path="/book/:id">
+            <Reader />
+          </Route>
+        </Switch>
+      </Router>
+    </Provider>
   );
 }
