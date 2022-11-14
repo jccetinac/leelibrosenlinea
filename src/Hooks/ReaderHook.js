@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { ReactReaderStyle } from 'react-reader';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const ReaderHook = () => {
   //const dispatch = useDispatch();
@@ -9,7 +9,6 @@ const ReaderHook = () => {
 
   const bookRenderReference = useRef(null);
   const bindReference = (BookProperties) => {
-    console.log(BookProperties);
     bookRenderReference.current = BookProperties;
     bookRenderReference.current.themes.select('custom');
     bookRenderReference.current.themes.fontSize(`${size}%`);
@@ -33,8 +32,7 @@ const ReaderHook = () => {
     ownStyles.arrow.justifyContent = 'center';
     ownStyles.arrow.alignItems = 'center';
     ownStyles.arrow.fontSize = '32px';
-
-    ownStyles.readerArea.backgroundColor = '#fff';
+    ownStyles.readerArea.backgroundColor = 'pink';
     ownStyles.readerArea.color = '#fff';
     return ownStyles;
   };

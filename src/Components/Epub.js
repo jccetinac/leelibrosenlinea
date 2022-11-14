@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ReactReader, ReactReaderStyle } from 'react-reader';
+import { ReactReader } from 'react-reader';
 import ReaderHook from '../Hooks/ReaderHook';
 
 const Epub = ({ uri }) => {
@@ -7,14 +7,17 @@ const Epub = ({ uri }) => {
     ReaderHook();
 
   // Set Page location
-  const [location, setLocation] =
-    localStorage.getItem('CurrentPage') == uri
-      ? useState(JSON.parse(localStorage.CurrentPage))
-      : useState(null);
+
+  const [location, setLocation] = useState(
+    localStorage.getItem('CurrentPage')
+      ? JSON.parse(localStorage.CurrentPage)
+      : null
+  );
 
   const locationChanged = (epubcifi) => {
     // epubcifi is a internal string used by epubjs to point to a location in an epub. It looks like this: epubcfi(/6/6[titlepage]!/4/2/12[pgepubid00003]/3:0)
     setLocation(epubcifi);
+    console.log(epubcifi);
     localStorage.setItem('CurrentPage', JSON.stringify(location));
   };
 
