@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import DATA from '../Data/Data';
 import { Link } from 'react-router-dom';
 import Menu from '../Components/Menu';
-
+import FormView from '../Components/FormView';
 const BookStore = () => {
   const [showSettings, setShowSettings] = useState(false);
 
@@ -12,6 +12,7 @@ const BookStore = () => {
   return (
     <>
       <Menu showSettings={showSettings} setShowSettings={setShowSettings} />
+      <FormView/>
       <div className="list-books">
         {DATA.map((item) => {
           return (

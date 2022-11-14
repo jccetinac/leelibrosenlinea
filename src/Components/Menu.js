@@ -8,9 +8,7 @@ const Menu = ({ showSettings, setShowSettings }) => {
 
   return (
     <div className="container-menu">
-      <Link to={`/`}>
-        <h1>state counter: {video}</h1>
-      </Link>
+      <Link to={`/`}>{video}</Link>
       <button
         className="settings-btn"
         onClick={() => {
