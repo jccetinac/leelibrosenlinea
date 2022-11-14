@@ -14,7 +14,7 @@ body {
 // Settings
 button {
   background-color: red;
-  color: white;
+  color: white !important;
 }
 .settings-container {
   position: absolute;
@@ -59,6 +59,11 @@ button {
           justify-content: center;
           align-items: center;
           cursor: pointer;
+          color: white !important;
+          svg {
+            color: white !important;
+            fill: white;
+          }
         }
         .value {
           display: flex;
@@ -77,6 +82,10 @@ button {
     border-radius: 100%;
     border: none;
     cursor: pointer;
+    svg {
+      color: white !important;
+      fill: white;
+    }
   }
 }
 
