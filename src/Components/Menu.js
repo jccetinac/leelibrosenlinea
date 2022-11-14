@@ -1,10 +1,12 @@
 import React from 'react';
 import { HiOutlineCog } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 const Menu = ({ showSettings, setShowSettings }) => {
   return (
     <div className="container-menu">
       <h2>librosEnLinea</h2>
+      <Link to={`/`}>LibrosEnLinea</Link>
       <button
         className="settings-btn"
         onClick={() => {

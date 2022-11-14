@@ -16,10 +16,10 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           <BookStore />
         </Route>
-        <Route path="/reader:id">
+        <Route path="/book/:name">
           <Reader />
         </Route>
       </Switch>

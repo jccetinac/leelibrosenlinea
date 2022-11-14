@@ -8,7 +8,7 @@ const BookStore = () => {
   return (
     <div className="list-books">
       {DATA.map((item) => {
-        return <Link to={`${UrlBase}${item.uri}`}>{item.name}</Link>;
+        return <Link to={`/book/${item.name}`}>{item.name}</Link>;
       })}
     </div>
   );
