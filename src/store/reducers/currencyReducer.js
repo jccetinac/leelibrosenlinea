@@ -1,12 +1,14 @@
-import { CHANGEVIDEO } from '../actions/videoActions.js';
+import { CHANGENAME } from '../actions/videoActions.js';
 
-const currencyReducer = (state = { file: 'inicial' }, action) => {
+const INICIALSTATE = { name: 'inicial' };
+
+const currencyReducer = (state = INICIALSTATE, action) => {
   switch (action.type) {
-    case CHANGEVIDEO:
-      console.log('changevideo');
+    case CHANGENAME:
+      console.log('changeName');
       return {
         ...state,
-        file: action.payload,
+        name: action.payload,
       };
     default:
       return state;

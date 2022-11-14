@@ -1,8 +1,8 @@
-const CHANGEVIDEO = 'CHANGEVIDEO';
+const CHANGENAME = 'CHANGENAME';
 
-const changeVideo = (inputValue) => ({
-  type: CHANGEVIDEO,
+const changeName = (inputValue) => ({
+  type: CHANGENAME,
   payload: inputValue,
 });
 
-export { changeVideo, CHANGEVIDEO };
+export { changeName, CHANGENAME };

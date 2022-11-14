@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Menu = ({ showSettings, setShowSettings }) => {
-  const video = useSelector((state) => state.file);
+  const video = useSelector((state) => state.name);
 
   return (
     <div className="container-menu">
