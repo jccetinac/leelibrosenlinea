@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import DATA from '../Data/Data';
 
 export default function Reader() {
-  const { name } = useParams();
+  const { id } = useParams();
   console.log(name);
 
   const [size, setSize] = useState(
@@ -17,7 +17,7 @@ export default function Reader() {
   const [showSettings, setShowSettings] = useState(false);
   const renditionRef = useRef(null);
 
-  const { uri } = DATA.find((book) => book.name === name);
+  const { uri } = DATA.find((book) => book.id === id);
   console.log(uri);
 
   useEffect(() => {

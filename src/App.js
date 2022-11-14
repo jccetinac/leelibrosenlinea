@@ -19,7 +19,7 @@ export default function App() {
         <Route path="/" exact>
           <BookStore />
         </Route>
-        <Route path="/book/:name">
+        <Route path="/book/:id">
           <Reader />
         </Route>
       </Switch>

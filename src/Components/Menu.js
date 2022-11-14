@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 const Menu = ({ showSettings, setShowSettings }) => {
   return (
     <div className="container-menu">
-      <h2>librosEnLinea</h2>
-      <Link to={`/`}>LibrosEnLinea</Link>
+      <Link to={`/`}>
+        <h2>librosEnLinea</h2>
+      </Link>
       <button
         className="settings-btn"
         onClick={() => {
