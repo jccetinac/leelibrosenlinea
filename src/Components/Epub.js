@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ReactReader, ReactReaderStyle } from 'react-reader';
 import { useSelector } from 'react-redux';
 
-const Epub = ({ uri, renditionRef }) => {
+const Epub = ({ uri }) => {
   const size = useSelector((state) => state.size);
 
   // Set Page location
@@ -10,9 +10,6 @@ const Epub = ({ uri, renditionRef }) => {
     localStorage.getItem('CurrentBook') == uri
       ? useState(JSON.parse(localStorage.CurrentPage))
       : useState(null);
-
-  // Persist CurrentPage to local storage
-  const current_book = localStorage.getItem('CurrentBook');
 
   const ownStyles = {
     ...ReactReaderStyle,
@@ -48,6 +45,15 @@ const Epub = ({ uri, renditionRef }) => {
     initialStyles();
   }, []);
 
+  const renditionRef = useRef(null);
+
+  useEffect(() => {
+    if (renditionRef.current) {
+      renditionRef.current.themes.fontSize(`${size}%`);
+      localStorage.setItem('fontSize', JSON.stringify(size));
+    }
+  }, [size]);
+
   return (
     <>
       <div className="reader">
@@ -59,6 +65,7 @@ const Epub = ({ uri, renditionRef }) => {
           getRendition={(rendition) => {
             renditionRef.current = rendition;
             renditionRef.current.themes.fontSize(`${size}%`);
+            console.log(renditionRef.current.themes);
             // Custom Styles
             rendition.themes.register('custom', {
               img: {

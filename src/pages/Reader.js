@@ -15,23 +15,14 @@ const Reader = () => {
 
   const { id } = useParams();
 
-  const renditionRef = useRef(null);
-
   const { uri } = DATA.find((book) => book.id === id);
-
-  useEffect(() => {
-    if (renditionRef.current) {
-      renditionRef.current.themes.fontSize(`${size}%`);
-      localStorage.setItem('fontSize', JSON.stringify(size));
-    }
-  }, [size]);
 
   return (
     <div>
       <div className="container-main">
         <div className="reader-container">
           {settings ? <Settings /> : ''}
-          <Epub uri={uri} renditionRef={renditionRef} />
+          <Epub uri={uri} />
         </div>
         <Ads />
       </div>
