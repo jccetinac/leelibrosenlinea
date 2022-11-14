@@ -14,7 +14,6 @@ const SettingsHook = () => {
   };
 
   const switchShowSettings = () => {
-    console.log(settings);
     dispatch(showSettings(!settings));
   };
 
