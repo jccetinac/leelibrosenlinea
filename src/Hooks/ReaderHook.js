@@ -28,26 +28,40 @@ const ReaderHook = () => {
   };
 
   const initialStyles = () => {
+    const { readerArea, tocAreaButton, tocArea, arrow } = ReactReaderStyle;
+
     const ownStyles = {
       ...ReactReaderStyle,
       readerArea: {
-        ...ReactReaderStyle.readerArea,
+        ...readerArea,
+        backgroundColor: 'pink',
+        transition: 'all .3s ease',
+      },
+      tocAreaButton: {
+        ...tocAreaButton,
+        borderBottom: '1px solid #efefef',
+        color: 'skyblue',
+      },
+      tocArea: {
+        ...tocArea,
+        backgroundColor: '#333',
+      },
+      arrow: {
+        ...arrow,
+        background: 'red',
+        borderRadius: '100%',
+        width: '32px',
+        height: '32px',
+        padding: '0px 0px',
+        marginTop: '0',
+        margin: '0 10px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '32px',
       },
     };
-    console.log(ownStyles);
-    ownStyles.arrow.background = 'red';
-    ownStyles.arrow.borderRadius = '100%';
-    ownStyles.arrow.width = '32px';
-    ownStyles.arrow.height = '32px';
-    ownStyles.arrow.padding = '0px 0px';
-    ownStyles.arrow.marginTop = '0';
-    ownStyles.arrow.margin = '0 10px';
-    ownStyles.arrow.display = 'flex';
-    ownStyles.arrow.justifyContent = 'center';
-    ownStyles.arrow.alignItems = 'center';
-    ownStyles.arrow.fontSize = '32px';
-    ownStyles.readerArea.backgroundColor = 'pink';
-    ownStyles.readerArea.color = '#fff !important';
+
     return ownStyles;
   };
 

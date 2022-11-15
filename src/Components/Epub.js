@@ -27,6 +27,9 @@ const Epub = ({ uri }) => {
           styles={initialStyles()}
           locationChanged={useLocation}
           url={uri}
+          epubInitOptions={{
+            openAs: 'epub',
+          }}
           getRendition={bindReference}
         />
       </div>
