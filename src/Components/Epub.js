@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ReactReader } from 'react-reader';
 import ReaderHook from '../Hooks/ReaderHook';
+import SettingsHook from '../Hooks/SettingsHook';
 
 const Epub = ({ uri }) => {
   const {
@@ -11,6 +12,8 @@ const Epub = ({ uri }) => {
     location,
     useLocation,
   } = ReaderHook();
+
+  const { modeColor } = SettingsHook();
 
   useEffect(() => {
     if (bookRenderReference.current) {
@@ -27,10 +30,10 @@ const Epub = ({ uri }) => {
           styles={initialStyles()}
           locationChanged={useLocation}
           url={uri}
+          getRendition={bindReference}
           epubInitOptions={{
             openAs: 'epub',
           }}
-          getRendition={bindReference}
         />
       </div>
     </>

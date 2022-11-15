@@ -4,13 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setLocation } from '../store/actions/videoActions';
 
 const ReaderHook = () => {
-  //const dispatch = useDispatch();
   const dispatch = useDispatch();
-
   const size = useSelector((state) => state.size);
+  const modeColor = useSelector((state) => state.modeColor);
   const location = useSelector((state) => state.location);
-
   const bookRenderReference = useRef(null);
+
   const bindReference = (BookProperties) => {
     bookRenderReference.current = BookProperties;
     bookRenderReference.current.themes.fontSize(`${size}%`);
@@ -21,20 +20,21 @@ const ReaderHook = () => {
       p: {
         'font-family': 'Helvetica, sans-serif',
         'font-weight': '400',
-        color: 'red',
+        color: modeColor === 'light' ? 'black' : 'white',
       },
     });
     bookRenderReference.current.themes.select('custom');
   };
 
   const initialStyles = () => {
-    const { readerArea, tocAreaButton, tocArea, arrow } = ReactReaderStyle;
+    const { readerArea, tocAreaButton, tocArea, arrow, tocButtonBar } =
+      ReactReaderStyle;
 
     const ownStyles = {
       ...ReactReaderStyle,
       readerArea: {
         ...readerArea,
-        backgroundColor: 'pink',
+        backgroundColor: modeColor === 'light' ? 'skyblue' : 'pink',
         transition: 'all .3s ease',
       },
       tocAreaButton: {
@@ -44,7 +44,7 @@ const ReaderHook = () => {
       },
       tocArea: {
         ...tocArea,
-        backgroundColor: '#333',
+        backgroundColor: 'red',
       },
       arrow: {
         ...arrow,
@@ -61,14 +61,8 @@ const ReaderHook = () => {
         fontSize: '32px',
       },
       tocButtonBar: {
-        position: 'absolute',
-        width: '60%',
+        ...tocButtonBar,
         background: 'red',
-        height: 2,
-        left: '50%',
-        margin: '-1px -30%',
-        top: '50%',
-        transition: 'all .5s ease',
       },
     };
 

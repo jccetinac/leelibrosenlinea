@@ -3,6 +3,7 @@ import {
   SHOWSETTINGS,
   SET_SIZE,
   SET_LOCATION,
+  SET_MODE_COLOR,
 } from '../actions/videoActions.js';
 
 const INICIALSTATE = {
@@ -12,6 +13,7 @@ const INICIALSTATE = {
   location: localStorage.getItem('CurrentPage')
     ? JSON.parse(localStorage.CurrentPage)
     : null,
+  modeColor: 'light',
 };
 
 const currencyReducer = (state = INICIALSTATE, action) => {
@@ -38,6 +40,11 @@ const currencyReducer = (state = INICIALSTATE, action) => {
       return {
         ...state,
         location: action.payload,
+      };
+    case SET_MODE_COLOR:
+      return {
+        ...state,
+        modeColor: action.payload,
       };
     default:
       return state;

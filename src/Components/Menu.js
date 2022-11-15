@@ -6,12 +6,12 @@ import SettingsHook from '../Hooks/SettingsHook';
 
 const Menu = () => {
   const { id } = useParams();
-  const { switchShowSettings } = SettingsHook();
+  const { switchShowSettings, modeColor } = SettingsHook();
 
   return (
     <div className="container-menu">
       <Link to={`/`} className="title">
-        LibrosEnLinea
+        LibrosEnLinea {modeColor}
       </Link>
 
       {id ? (

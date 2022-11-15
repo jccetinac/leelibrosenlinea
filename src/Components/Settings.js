@@ -10,6 +10,8 @@ const Epub = () => {
     size,
     showSettings,
     switchShowSettings,
+    switchModeColor,
+    modeColor,
   } = SettingsHook();
 
   return (
@@ -39,6 +41,25 @@ const Epub = () => {
                 <HiChevronRight color="grey" fontSize="1.4rem" />
               </button>
             </div>
+          </div>
+        </div>
+
+        <div className="settings">
+          <div className="property">
+            <button
+              onClick={() => {
+                switchModeColor('light');
+              }}
+            >
+              light
+            </button>
+            <button
+              onClick={() => {
+                switchModeColor('dark');
+              }}
+            >
+              Dark
+            </button>
           </div>
         </div>
         <button
