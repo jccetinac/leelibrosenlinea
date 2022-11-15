@@ -1,23 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { ReactReader } from 'react-reader';
 import ReaderHook from '../Hooks/ReaderHook';
 
 const Epub = ({ uri }) => {
-  const { initialStyles, bindReference, bookRenderReference, size } =
-    ReaderHook();
-
-  // Set Page location
-
-  const [location, setLocation] = useState(
-    localStorage.getItem('CurrentPage')
-      ? JSON.parse(localStorage.CurrentPage)
-      : null
-  );
-
-  const locationChanged = (epubcifi) => {
-    setLocation(epubcifi);
-    localStorage.setItem('CurrentPage', JSON.stringify(location));
-  };
+  const {
+    initialStyles,
+    bindReference,
+    bookRenderReference,
+    size,
+    location,
+    useLocation,
+  } = ReaderHook();
 
   useEffect(() => {
     if (bookRenderReference.current) {
@@ -32,7 +25,7 @@ const Epub = ({ uri }) => {
         <ReactReader
           location={location}
           styles={initialStyles()}
-          locationChanged={locationChanged}
+          locationChanged={useLocation}
           url={uri}
           getRendition={bindReference}
         />

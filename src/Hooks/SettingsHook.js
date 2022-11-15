@@ -5,6 +5,7 @@ const SettingsHook = () => {
   const dispatch = useDispatch();
   const settings = useSelector((state) => state.settings);
   const size = useSelector((state) => state.size);
+  const location = useSelector((state) => state.location);
 
   const incressSizeFont = () => {
     dispatch(setSize(Math.min(200, size + 10)));

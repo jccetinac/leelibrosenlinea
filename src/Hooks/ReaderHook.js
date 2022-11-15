@@ -1,11 +1,14 @@
 import React, { useRef } from 'react';
 import { ReactReaderStyle } from 'react-reader';
-
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLocation } from '../store/actions/videoActions';
 
 const ReaderHook = () => {
   //const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
   const size = useSelector((state) => state.size);
+  const location = useSelector((state) => state.location);
 
   const bookRenderReference = useRef(null);
   const bindReference = (BookProperties) => {
@@ -37,11 +40,21 @@ const ReaderHook = () => {
     return ownStyles;
   };
 
+  const useLocation = (val) => {
+    console.log('entro', val);
+    if (val) {
+      localStorage.setItem('CurrentPage', JSON.stringify(val));
+      dispatch(setLocation(val));
+    }
+  };
+
   return {
     initialStyles,
     bookRenderReference,
     bindReference,
     size,
+    useLocation,
+    location,
   };
 };
 

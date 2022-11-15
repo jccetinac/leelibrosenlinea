@@ -1,6 +1,7 @@
 const CHANGENAME = 'CHANGENAME';
 const SHOWSETTINGS = 'SHOWSETTINGS';
 const SET_SIZE = 'SET_SIZE';
+const SET_LOCATION = 'SET_LOCATION';
 
 const changeName = (inputValue) => ({
   type: CHANGENAME,
@@ -17,6 +18,11 @@ const setSize = (inputValue) => ({
   payload: inputValue,
 });
 
+const setLocation = (inputValue) => ({
+  type: SET_LOCATION,
+  payload: inputValue,
+});
+
 export {
   changeName,
   CHANGENAME,
@@ -24,4 +30,6 @@ export {
   SHOWSETTINGS,
   setSize,
   SET_SIZE,
+  setLocation,
+  SET_LOCATION,
 };

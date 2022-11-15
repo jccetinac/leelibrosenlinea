@@ -1,9 +1,17 @@
-import { CHANGENAME, SHOWSETTINGS, SET_SIZE } from '../actions/videoActions.js';
+import {
+  CHANGENAME,
+  SHOWSETTINGS,
+  SET_SIZE,
+  SET_LOCATION,
+} from '../actions/videoActions.js';
 
 const INICIALSTATE = {
   name: 'inicial',
   settings: false,
   size: 100,
+  location: localStorage.getItem('CurrentPage')
+    ? JSON.parse(localStorage.CurrentPage)
+    : null,
 };
 
 const currencyReducer = (state = INICIALSTATE, action) => {
@@ -25,6 +33,11 @@ const currencyReducer = (state = INICIALSTATE, action) => {
       return {
         ...state,
         size: action.payload,
+      };
+    case SET_LOCATION:
+      return {
+        ...state,
+        location: action.payload,
       };
     default:
       return state;
