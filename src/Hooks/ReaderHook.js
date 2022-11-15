@@ -13,8 +13,18 @@ const ReaderHook = () => {
   const bookRenderReference = useRef(null);
   const bindReference = (BookProperties) => {
     bookRenderReference.current = BookProperties;
-    bookRenderReference.current.themes.select('custom');
     bookRenderReference.current.themes.fontSize(`${size}%`);
+    bookRenderReference.current.themes.register('custom', {
+      div: {
+        background: 'skyblue',
+      },
+      p: {
+        'font-family': 'Helvetica, sans-serif',
+        'font-weight': '400',
+        color: 'red',
+      },
+    });
+    bookRenderReference.current.themes.select('custom');
   };
 
   const initialStyles = () => {
@@ -24,6 +34,7 @@ const ReaderHook = () => {
         ...ReactReaderStyle.readerArea,
       },
     };
+    console.log(ownStyles);
     ownStyles.arrow.background = 'red';
     ownStyles.arrow.borderRadius = '100%';
     ownStyles.arrow.width = '32px';
@@ -36,12 +47,11 @@ const ReaderHook = () => {
     ownStyles.arrow.alignItems = 'center';
     ownStyles.arrow.fontSize = '32px';
     ownStyles.readerArea.backgroundColor = 'pink';
-    ownStyles.readerArea.color = '#fff';
+    ownStyles.readerArea.color = '#fff !important';
     return ownStyles;
   };
 
   const useLocation = (val) => {
-    console.log('entro', val);
     if (val) {
       localStorage.setItem('CurrentPage', JSON.stringify(val));
       dispatch(setLocation(val));
