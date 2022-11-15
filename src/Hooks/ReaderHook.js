@@ -60,6 +60,16 @@ const ReaderHook = () => {
         alignItems: 'center',
         fontSize: '32px',
       },
+      tocButtonBar: {
+        position: 'absolute',
+        width: '60%',
+        background: 'red',
+        height: 2,
+        left: '50%',
+        margin: '-1px -30%',
+        top: '50%',
+        transition: 'all .5s ease',
+      },
     };
 
     return ownStyles;
