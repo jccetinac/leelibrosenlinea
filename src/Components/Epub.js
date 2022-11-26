@@ -3,7 +3,7 @@ import { ReactReader } from 'react-reader';
 import ReaderHook from '../Hooks/ReaderHook';
 import SettingsHook from '../Hooks/SettingsHook';
 
-const Epub = ({ uri }) => {
+const Epub = ({ uri, title }) => {
   const {
     initialStyles,
     bindReference,
@@ -30,6 +30,7 @@ const Epub = ({ uri }) => {
           styles={initialStyles()}
           locationChanged={useLocation}
           url={uri}
+          title={title}
           getRendition={bindReference}
           epubInitOptions={{
             openAs: 'epub',

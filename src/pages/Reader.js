@@ -13,14 +13,14 @@ const Reader = () => {
 
   const { id } = useParams();
 
-  const { uri } = DATA.find((book) => book.id === id);
+  const { uri, name: title } = DATA.find((book) => book.id === id);
 
   return (
     <div>
       <div className="container-main">
         <div className="reader-container">
           {settings ? <Settings /> : ''}
-          <Epub uri={uri} />
+          <Epub uri={uri} title={title} />
         </div>
         <Ads />
       </div>
