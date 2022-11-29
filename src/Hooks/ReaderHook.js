@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { ReactReaderStyle } from 'react-reader';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLocation } from '../store/actions/videoActions';
@@ -20,7 +20,7 @@ const ReaderHook = () => {
       p: {
         'font-family': 'Helvetica, sans-serif',
         'font-weight': '400',
-        color: modeColor === 'light' ? 'black' : 'white',
+        color: 'purple',
       },
     });
     bookRenderReference.current.themes.select('custom');
@@ -36,6 +36,7 @@ const ReaderHook = () => {
         ...readerArea,
         backgroundColor: modeColor === 'light' ? 'skyblue' : 'pink',
         transition: 'all .3s ease',
+        color: modeColor === 'light' ? 'red' : 'yellow',
       },
       tocAreaButton: {
         ...tocAreaButton,
@@ -68,6 +69,10 @@ const ReaderHook = () => {
 
     return ownStyles;
   };
+
+  useEffect(() => {
+    initialStyles();
+  }, [modeColor]);
 
   const useLocation = (val) => {
     if (val) {
