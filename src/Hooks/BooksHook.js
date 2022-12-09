@@ -5,15 +5,16 @@ import { db } from '../firebase';
 const BooksHook = () => {
   const dispatch = useDispatch();
 
-  const getItemsByCategory = async (idCategory) => {
-    const colRef = collection(db, '/categories/' + idCategory + '/libros');
-    const result = await getDocs(query(colRef));
-    return getArrayFromCollection(result);
-  };
   const getArrayFromCollection = (collection) => {
     return collection.docs.map((doc) => {
       return { ...doc.data(), id: doc.id };
     });
+  };
+
+  const getItemsByCategory = async (idCategory) => {
+    const colRef = collection(db, '/categories/' + idCategory + '/libros');
+    const result = await getDocs(query(colRef));
+    return getArrayFromCollection(result);
   };
 
   const getBooks = async () => {
