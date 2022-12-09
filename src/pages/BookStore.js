@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import DATA from '../Data/Data';
 import { Link } from 'react-router-dom';
+import BooksHook from '../Hooks/BooksHook';
 
 const BookStore = () => {
   const UrlBase = 'https://zeektenka.github.io/files/';
+  const { getItemsByCategory } = BooksHook();
+
+  useEffect(() => {
+    const execute = async () => {
+      // ese id creo que si lo tienes
+      console.log('aqui');
+      const respuesta = await getItemsByCategory('zibKaBNAi48QvVO7cHC6');
+      console.log(respuesta);
+    };
+
+    execute();
+  }, []);
 
   return (
     <>
