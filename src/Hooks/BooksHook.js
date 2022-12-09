@@ -1,11 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { collection, getDocs, query, doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import firebaseUtils from '../utils/firebaseUtils';
 
 const BooksHook = () => {
-  const dispatch = useDispatch();
-
   const { getArrayFromCollection } = firebaseUtils();
   const getItemsByCategory = async (idCategory) => {
     const colRef = collection(db, '/categories/' + idCategory + '/libros');
