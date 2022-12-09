@@ -4,7 +4,7 @@ import {
   SET_SIZE,
   SET_LOCATION,
   SET_MODE_COLOR,
-} from '../actions/videoActions.js';
+} from '../actions/readerActions.js';
 
 const INICIALSTATE = {
   name: 'inicial',
@@ -16,7 +16,7 @@ const INICIALSTATE = {
   modeColor: 'light',
 };
 
-const currencyReducer = (state = INICIALSTATE, action) => {
+const readerReducer = (state = INICIALSTATE, action) => {
   switch (action.type) {
     case CHANGENAME:
       console.log('changeName');
@@ -51,4 +51,4 @@ const currencyReducer = (state = INICIALSTATE, action) => {
   }
 };
 
-export { currencyReducer };
+export { readerReducer };

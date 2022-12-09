@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { ReactReaderStyle } from 'react-reader';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLocation } from '../store/actions/videoActions';
+import { setLocation } from '../store/actions/readerActions';
 
 const ReaderHook = () => {
   const dispatch = useDispatch();

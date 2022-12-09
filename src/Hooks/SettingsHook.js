@@ -3,7 +3,7 @@ import {
   showSettings,
   setSize,
   setModeColor,
-} from '../store/actions/videoActions';
+} from '../store/actions/readerActions';
 
 const SettingsHook = () => {
   const dispatch = useDispatch();

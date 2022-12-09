@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
-import { currencyReducer } from './reducers/currencyReducer.js';
+import { readerReducer } from './reducers/readerReducer.js';
 
-const appStore = createStore(currencyReducer);
+const appStore = createStore(readerReducer);
 
 export default appStore;
