@@ -10,11 +10,13 @@ const BookStore = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     const execute = async () => {
-      // ese id creo que si lo tienes
-      console.log('aqui');
-      const respuesta = await getBooks();
-      setBooks(respuesta);
-      console.log(respuesta);
+      try {
+        const respuesta = await getBooks();
+        setBooks(respuesta);
+        console.log(respuesta);
+      } catch (e) {
+        console.log(e);
+      }
     };
 
     execute();
@@ -23,7 +25,7 @@ const BookStore = () => {
   return (
     <>
       <div className="list-books">
-        {books.map((item) => {
+        {books?.map((item) => {
           return (
             <div className="item">
               <Link to={`/book/${item.id}`}>
