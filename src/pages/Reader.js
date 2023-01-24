@@ -10,7 +10,7 @@ import SettingsHook from '../Hooks/SettingsHook';
 const Reader = () => {
   const { getBookById } = BooksHook();
   const [book, setBook] = useState({});
-  const { settings } = SettingsHook();
+  const { settings, modeColor } = SettingsHook();
   const { id } = useParams();
 
   useEffect(() => {
@@ -26,9 +26,9 @@ const Reader = () => {
   }, []);
 
   return (
-    <div>
-      <div className="container-main">
-        <div className="reader-container">
+    <div className={`${modeColor}`}>
+      <div className={`container-main ${modeColor}`}>
+        <div className={`reader-container ${modeColor}`}>
           {settings ? <Settings /> : ''}
           <Epub uri={book.uri} title={book.name} />
         </div>

@@ -19,19 +19,31 @@ const Epub = ({ uri, title }) => {
     if (bookRenderReference.current) {
       bookRenderReference.current.themes.fontSize(`${size}%`);
       localStorage.setItem('fontSize', JSON.stringify(size));
+      const backGroundSelected = modeColor === 'light' ? 'white' : 'black';
+      const fontColorSelected = modeColor === 'light' ? 'black' : 'white';
+      bookRenderReference.current.themes.register('custom', {
+        '*': {
+          color: 'gray',
+          background: backGroundSelected,
+        },
+        p: {
+          color: fontColorSelected,
+        },
+      });
+      bookRenderReference.current.themes.select('custom');
     }
-  }, [size]);
+  }, [size, modeColor]);
 
   return (
     <>
-      <div className="reader">
+      <div className={`reader ${modeColor}`}>
         <ReactReader
           location={location}
           styles={initialStyles()}
           locationChanged={useLocation}
           url={uri}
           title={title}
-          getRendition={(bindReference)}
+          getRendition={bindReference}
           epubInitOptions={{
             openAs: 'epub',
           }}

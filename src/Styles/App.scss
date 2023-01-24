@@ -3,6 +3,7 @@ body {
   width: 100vw;
   overflow: hidden;
   padding: 0;
+  margin: 0;
 }
 
 .list-books {
@@ -189,4 +190,8 @@ button {
     align-content: center;
     justify-content: center;
   }
+}
+
+.dark {
+  background-color: black;
 }

@@ -6,21 +6,25 @@ import { setLocation } from '../store/actions/readerActions';
 const ReaderHook = () => {
   const dispatch = useDispatch();
   const size = useSelector((state) => state.size);
+
   const modeColor = useSelector((state) => state.modeColor);
+  console.log(modeColor, 'DESDE HOOK');
   const location = useSelector((state) => state.location);
   const bookRenderReference = useRef(null);
 
   const bindReference = (BookProperties) => {
     bookRenderReference.current = BookProperties;
     bookRenderReference.current.themes.fontSize(`${size}%`);
+    const backGroundSelected = modeColor === 'light' ? 'white' : 'black';
+    const fontColorSelected = modeColor === 'light' ? 'black' : 'white';
+
     bookRenderReference.current.themes.register('custom', {
-      div: {
-        background: 'skyblue',
+      '*': {
+        color: 'gray',
+        background: backGroundSelected,
       },
       p: {
-        'font-family': 'Helvetica, sans-serif',
-        'font-weight': '400',
-        color: 'purple',
+        color: fontColorSelected,
       },
     });
     bookRenderReference.current.themes.select('custom');
@@ -34,9 +38,8 @@ const ReaderHook = () => {
       ...ReactReaderStyle,
       readerArea: {
         ...readerArea,
-        backgroundColor: modeColor === 'light' ? 'skyblue' : 'pink',
         transition: 'all .3s ease',
-        color: modeColor === 'light' ? 'red' : 'yellow',
+        background: modeColor === 'light' ? 'white' : 'black',
       },
       tocAreaButton: {
         ...tocAreaButton,
@@ -65,14 +68,14 @@ const ReaderHook = () => {
         ...tocButtonBar,
         background: 'red',
       },
+      '*': {
+        color: '#FFFFFF',
+        background: '#333333',
+      },
     };
 
     return ownStyles;
   };
-
-  useEffect(() => {
-    initialStyles();
-  }, [modeColor]);
 
   const useLocation = (val) => {
     if (val) {
