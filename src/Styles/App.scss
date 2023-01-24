@@ -99,6 +99,13 @@ button {
   padding: 10px 20px 10px 20px;
   color: rgb(255, 255, 255);
   max-height: 5vh;
+  &_light {
+    background-color: red;
+  }
+
+  &_dark {
+    background-color: darkred;
+  }
   .title {
     font-size: 1rem;
     text-decoration: none;

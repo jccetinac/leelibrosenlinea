@@ -8,7 +8,6 @@ const ReaderHook = () => {
   const size = useSelector((state) => state.size);
 
   const modeColor = useSelector((state) => state.modeColor);
-  console.log(modeColor, 'DESDE HOOK');
   const location = useSelector((state) => state.location);
   const bookRenderReference = useRef(null);
 

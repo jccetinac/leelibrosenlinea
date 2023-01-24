@@ -9,9 +9,9 @@ const Menu = () => {
   const { switchShowSettings, modeColor } = SettingsHook();
 
   return (
-    <div className="container-menu">
+    <div className={`container-menu container-menu_${modeColor}`}>
       <Link to={`/`} className="title">
-        LibrosEnLinea {modeColor}
+        LibrosEnLinea
       </Link>
 
       {id ? (
